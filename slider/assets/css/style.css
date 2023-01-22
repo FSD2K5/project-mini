@@ -1,0 +1,81 @@
+.app {
+    width: 100%;
+    height: 100vh;
+    background-image: linear-gradient(135deg, #2cccff, #6a5af9);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.app .slider {
+    width: 1000px;
+    height: 600px;
+    background-color: #fff;
+    position: relative;
+    overflow: hidden;
+}
+
+.app .slider .list-img {
+    height: 100%;
+    width: max-content;
+    list-style: none;
+    display: flex;
+    transform: translateX(0%);
+    transition: all 500ms ease;
+}
+
+.app .slider .list-img li {
+    width: 1000px;
+    height: 100%;
+}
+
+.app .slider .list-img li img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.app .slider .button {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.button button {
+    width: 100%;
+    height: 100%;
+    font-size: 20px;
+    border: none;
+    outline: none;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.app .slider #next {
+    right: 0;
+    z-index: 10;
+}
+
+.app .slider #previous {
+    left: 0;
+    z-index: 10;
+}
+
+.app .list-radio-button {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.app .list-radio-button li {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #fff;
+    cursor: pointer;
+}
