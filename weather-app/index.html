@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <!-- Link css -->
+        <link rel="stylesheet" href="./assets/css/reset.css" />
+        <link rel="stylesheet" href="./assets/css/style.css" />
+        <!-- Link Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
+        <title>Weather App</title>
+    </head>
+    <body>
+        <!-- Link Js -->
+        <div class="app">
+            <div class="content">
+                <div class="input__search">
+                    <input type="text" placeholder="Enter address" />
+                    <button>
+                        <i class="fa-sharp fa-solid fa-magnifying-glass"></i>
+                    </button>
+                </div>
+                <div class="info">
+                    <div class="temperature">
+                        <h2 class="name__city"></h2>
+                        <p class="info__temperature"></p>
+                        <p class="state"></p>
+                    </div>
+                    <ul class="info__sub">
+                        <li>
+                            <i class="fa-solid fa-eye"></i>
+                            <p class="value" id="sight"></p>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-wind"></i>
+                            <p class="value" id="windy"></p>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-droplet"></i>
+                            <p class="value" id="humidity"></p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="time"></div>
+            </div>
+        </div>
+        <script src="./assets/js/index.js"></script>
+    </body>
+</html>
