@@ -76,7 +76,7 @@ const handleSetActiveButton = function (listNode) {
 const handleActiveWhenClickNextBtn = function (listNode) {
     let address = 0;
     for (let i = 0; i < listNode.length; i++) {
-        if (listNode[i].getAttribute("class").includes("active")) {
+        if (listNode[i].getAttribute("class") === "active") {
             address = i;
             break;
         }
@@ -86,13 +86,15 @@ const handleActiveWhenClickNextBtn = function (listNode) {
     });
     if (address >= listNode.length - 1) {
         address = 0;
+        listNode[address].setAttribute("class", "active");
+    } else {
+        listNode[address + 1].setAttribute("class", "active");
     }
-    listNode[address + 1].setAttribute("class", "active");
 };
 const handleActiveWhenClickPreviousBtn = function (listNode) {
     let address = 0;
     for (let i = 0; i < listNode.length; i++) {
-        if (listNode[i].getAttribute("class").includes("active")) {
+        if (listNode[i].getAttribute("class") === "active") {
             address = i;
             break;
         }
@@ -102,8 +104,10 @@ const handleActiveWhenClickPreviousBtn = function (listNode) {
     });
     if (address <= 0) {
         address = listNode.length - 1;
+        listNode[address].setAttribute("class", "active");
+    } else {
+        listNode[address - 1].setAttribute("class", "active");
     }
-    listNode[address - 1].setAttribute("class", "active");
 };
 
 const renderRadioButton = function (len) {
