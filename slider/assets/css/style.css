@@ -73,9 +73,14 @@
 }
 
 .app .list-radio-button li {
-    width: 10px;
-    height: 10px;
+    width: 15px;
+    height: 15px;
+    border: 3px solid #fff;
     border-radius: 50%;
     background-color: #fff;
     cursor: pointer;
+}
+
+.app .list-radio-button .active {
+    background-color: #6a5af9;
 }

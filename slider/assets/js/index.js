@@ -54,10 +54,56 @@ const handleChoose = function (listNode) {
     listNode.forEach((item) => {
         item.addEventListener("click", (e) => {
             let pos = item.getAttribute("id");
-            console.log(pos);
             slider.style.transform = `translateX(-${distance * pos}%)`;
+            position = -(distance * pos);
         });
     });
+};
+
+const handleSetActiveButton = function (listNode) {
+    // Set Default
+    listNode[0].setAttribute("class", "active");
+    // Set Active
+    listNode.forEach((item) => {
+        item.addEventListener("click", (e) => {
+            listNode.forEach((child) => {
+                child.classList.remove("active");
+            });
+            item.classList.add("active");
+        });
+    });
+};
+const handleActiveWhenClickNextBtn = function (listNode) {
+    let address = 0;
+    for (let i = 0; i < listNode.length; i++) {
+        if (listNode[i].getAttribute("class").includes("active")) {
+            address = i;
+            break;
+        }
+    }
+    listNode.forEach((item) => {
+        item.classList.remove("active");
+    });
+    if (address >= listNode.length - 1) {
+        address = 0;
+    }
+    listNode[address + 1].setAttribute("class", "active");
+};
+const handleActiveWhenClickPreviousBtn = function (listNode) {
+    let address = 0;
+    for (let i = 0; i < listNode.length; i++) {
+        if (listNode[i].getAttribute("class").includes("active")) {
+            address = i;
+            break;
+        }
+    }
+    listNode.forEach((item) => {
+        item.classList.remove("active");
+    });
+    if (address <= 0) {
+        address = listNode.length - 1;
+    }
+    listNode[address - 1].setAttribute("class", "active");
 };
 
 const renderRadioButton = function (len) {
@@ -68,12 +114,13 @@ const renderRadioButton = function (len) {
         listRadioButton.appendChild(li);
         id = id + 1;
     }
-    handleChoose(document.querySelectorAll(".list-radio-button li"));
+    const listButton = document.querySelectorAll(".list-radio-button li");
+    handleChoose(listButton);
+    handleSetActiveButton(listButton);
 };
 renderRadioButton(lengthData);
 
 slider.innerHTML = listImg(data);
-//12.5
 nextButton.addEventListener("click", (e) => {
     if (position > -(100 - distance)) {
         position = position - distance;
@@ -81,6 +128,8 @@ nextButton.addEventListener("click", (e) => {
         position = 0;
     }
     slider.style.transform = `translateX(${position}%)`;
+    const listButton = document.querySelectorAll(".list-radio-button li");
+    handleActiveWhenClickNextBtn(listButton);
 });
 previousButton.addEventListener("click", (e) => {
     if (position < 0) {
@@ -89,4 +138,6 @@ previousButton.addEventListener("click", (e) => {
         position = -(100 - distance);
     }
     slider.style.transform = `translateX(${position}%)`;
+    const listButton = document.querySelectorAll(".list-radio-button li");
+    handleActiveWhenClickPreviousBtn(listButton);
 });
